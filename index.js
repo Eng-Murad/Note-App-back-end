@@ -18,15 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const salt = bcrypt.genSaltSync(10);
 const secret = 'kjsdhfjkfhksfdfdf';
 
+app.use(cors());
 
-app.use(cors({ credentials: true, origin: (origin, callback) => {
-    // Check if the origin is in the whitelist, or if it is a Render subdomain
-    if (whitelist.includes(origin) || origin.endsWith('https://note-app-front-end-a9k1.onrender.com')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  } }));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -35,6 +28,11 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect('mongodb+srv://maljadasi:29H15ghGr1fAODfh@cluster0.rla9r60.mongodb.net/?retryWrites=true&w=majority/plog')
   .then(() => console.log('Connected!'));
+
+app.git('/', async (req, res) => {
+    res.setHeader('access-control-allow-credentials', 'true');
+    res.send('Api is running');
+});
 
 app.post('/register', async (req, res) => {
     const {username,  email, password} = req.body;
