@@ -25,7 +25,8 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
 
-mongoose.connect('mongodb://localhost:27017/blog')
+
+mongoose.connect('mongodb+srv://maljadasi:29H15ghGr1fAODfh@mongodb0.example.com/?authSource=admin&replicaSet=myRepl')
   .then(() => console.log('Connected!'));
 
 app.post('/register', async (req, res) => {
