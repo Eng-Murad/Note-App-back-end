@@ -29,7 +29,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 mongoose.connect('mongodb+srv://maljadasi:29H15ghGr1fAODfh@cluster0.rla9r60.mongodb.net/?retryWrites=true&w=majority/plog')
   .then(() => console.log('Connected!'));
 
-app.git('/', async (req, res) => {
+app.get('/', async (req, res) => {
     res.setHeader('access-control-allow-credentials', 'true');
     res.send('Api is running');
 });
