@@ -20,7 +20,8 @@ const secret = 'kjsdhfjkfhksfdfdf';
 
 //app.use(cors());
 app.use(cors({
-    origin:['http://localhost:4000', 'https://note-app-front-end-a9k1.onrender.com']
+    origin:['http://localhost:4000', 'https://note-app-front-end-a9k1.onrender.com'],
+    credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser());
