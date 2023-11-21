@@ -18,8 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const salt = bcrypt.genSaltSync(10);
 const secret = 'kjsdhfjkfhksfdfdf';
 
-app.use(cors());
-
+//app.use(cors());
+app.use(cors({
+    origin:['http://localhost:4000', 'https://note-app-front-end-a9k1.onrender.com']
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
