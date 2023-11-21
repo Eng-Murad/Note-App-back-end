@@ -104,8 +104,8 @@ app.post('/post', uploadmiddleware.single('file'), async (req, res) => {
             title,
             summary,
             content,
-            cover: newPath,
-            author: info.id,
+           // cover: newPath,
+           // author: info.id,
         });
         res.header('Access-Control-Allow-Origin', 'https://note-app-front-end-a9k1.onrender.com');
         res.json(postDoc);
